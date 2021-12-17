@@ -30,4 +30,10 @@ SUCCESS: Specified value was saved.
 
 In trying to run the hello_world example, I realized the above SDK path is incorrect. I dropped the parent directory double-dots from the location. I re-ran the command with the absolute path to the SDK. I will have to redo this when I reorganize my files after graduation.
 
-The next problem was **nmake** not being found. I re-ran VS Installer and installed C++ CMake tools, as detailed in #6 of SDK Toolchain Setup.
+The next problem was **nmake** not being found. I re-ran VS Installer and installed C++ CMake tools, as detailed in #6 of SDK Toolchain Setup. Then I restarted my computer (for the first time in the installation process, heheh...).
+
+
+## Building Hello World 
+Running the example build again worked this time! I also realized I left off a double-dot from the cmake command. Not sure what that argument is for, but it made a big (positive) difference in the output. 
+
+However, running nmake still failed. The complete output is shown in "hello-world-build-err.md". nmake is run on line 20.

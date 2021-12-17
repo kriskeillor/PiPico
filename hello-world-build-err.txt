@@ -1,0 +1,83 @@
+C:\Users\7hesa\Documents\WWU\EECE\RPiPico\Projects\pico-examples\build>cmake -G "NMake Makefiles" ..
+Using PICO_SDK_PATH from environment ('C:\Users\7hesa\Documents\WWU\EECE\RPiPico\Toolchain\pico-sdk')
+PICO_SDK_PATH is C:/Users/7hesa/Documents/WWU/EECE/RPiPico/Toolchain/pico-sdk
+Defaulting PICO_PLATFORM to rp2040 since not specified.
+Defaulting PICO platform compiler to pico_arm_gcc since not specified.
+-- Defaulting build type to 'Release' since not specified.
+PICO compiler is pico_arm_gcc
+-- The C compiler identification is GNU 10.3.1
+-- The CXX compiler identification is GNU 10.3.1
+-- The ASM compiler identification is GNU
+-- Found assembler: C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-gcc.exe
+Defaulting PICO target board to pico since not specified.
+Using board configuration from C:/Users/7hesa/Documents/WWU/EECE/RPiPico/Toolchain/pico-sdk/src/boards/include/boards/pico.h
+-- Found Python3: C:/Users/7hesa/AppData/Local/Programs/Python/Python310/python.exe (found version "3.10.1") found components: Interpreter
+TinyUSB available at C:/Users/7hesa/Documents/WWU/EECE/RPiPico/Toolchain/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040; enabling build support for USB.
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/7hesa/Documents/WWU/EECE/RPiPico/Projects/pico-examples/build
+
+C:\Users\7hesa\Documents\WWU\EECE\RPiPico\Projects\pico-examples\build>nmake
+
+Microsoft (R) Program Maintenance Utility Version 14.30.30706.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+Scanning dependencies of target bs2_default
+[  0%] Building ASM object pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/compile_time_choice.S.obj
+[  0%] Linking ASM executable bs2_default.elf
+[  0%] Built target bs2_default
+[  0%] Generating bs2_default.bin
+[  0%] Generating bs2_default_padded_checksummed.S
+[  0%] Built target bs2_default_padded_checksummed_asm
+[  0%] Creating directories for 'ELF2UF2Build'
+[  0%] No download step for 'ELF2UF2Build'
+[  0%] No update step for 'ELF2UF2Build'
+[  0%] No patch step for 'ELF2UF2Build'
+[  0%] Performing configure step for 'ELF2UF2Build'
+-- The C compiler identification is MSVC 19.30.30706.0
+-- The CXX compiler identification is MSVC 19.30.30706.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - failed
+-- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.30.30705/bin/Hostx86/x86/cl.exe
+-- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.30.30705/bin/Hostx86/x86/cl.exe - broken
+CMake Error at C:/Program Files/CMake/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake:69 (message):
+  The C compiler
+
+    "C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.30.30705/bin/Hostx86/x86/cl.exe"
+
+  is not able to compile a simple test program.
+
+  It fails with the following output:
+
+    Change Dir: C:/Users/7hesa/Documents/WWU/EECE/RPiPico/Projects/pico-examples/build/elf2uf2/CMakeFiles/CMakeTmp
+
+    Run Build Command(s):nmake -f Makefile /nologo cmTC_d8505\fast &&   "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.30.30705\bin\HostX86\x86\nmake.exe"  -f CMakeFiles\cmTC_d8505.dir\build.make /nologo -L                  CMakeFiles\cmTC_d8505.dir\build
+    Building C object CMakeFiles/cmTC_d8505.dir/testCCompiler.c.obj
+        "C:\Program Files\CMake\bin\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\cmTC_d8505.dir\testCCompiler.c.obj.d --working-dir=C:\Users\7hesa\Documents\WWU\EECE\RPiPico\Projects\pico-examples\build\elf2uf2\CMakeFiles\CMakeTmp --filter-prefix="Note: including file: " -- C:\PROGRA~1\MICROS~2\2022\PROFES~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @C:\Users\7hesa\AppData\Local\Temp\nm70F7.tmp
+    testCCompiler.c
+    Linking C executable cmTC_d8505.exe
+        "C:\Program Files\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_d8505.dir --rc=rc --mt=CMAKE_MT-NOTFOUND --manifests -- C:\PROGRA~1\MICROS~2\2022\PROFES~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\cmTC_d8505.dir\objects1.rsp @C:\Users\7hesa\AppData\Local\Temp\nm7156.tmp
+    RC Pass 1: command "rc /fo CMakeFiles\cmTC_d8505.dir/manifest.res CMakeFiles\cmTC_d8505.dir/manifest.rc" failed (exit code 0) with the following output:
+    The system cannot find the file specifiedNMAKE : fatal error U1077: '"C:\Program Files\CMake\bin\cmake.exe"' : return code '0xffffffff'
+    Stop.
+    NMAKE : fatal error U1077: '"C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.30.30705\bin\HostX86\x86\nmake.exe"' : return code '0x2'
+    Stop.
+
+
+
+
+
+  CMake will not be able to correctly generate this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/Users/7hesa/Documents/WWU/EECE/RPiPico/Projects/pico-examples/build/elf2uf2/CMakeFiles/CMakeOutput.log".
+See also "C:/Users/7hesa/Documents/WWU/EECE/RPiPico/Projects/pico-examples/build/elf2uf2/CMakeFiles/CMakeError.log".
+NMAKE : fatal error U1077: 'echo' : return code '0x1'
+Stop.
+NMAKE : fatal error U1077: '"C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.30.30705\bin\HostX86\x86\nmake.exe"' : return code '0x2'
+Stop.
+NMAKE : fatal error U1077: '"C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.30.30705\bin\HostX86\x86\nmake.exe"' : return code '0x2'
+Stop.
