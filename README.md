@@ -46,3 +46,5 @@ This STILL didn't work with the Hello World example project, so I tried creating
 > Removing it from the list of installed items will mean that you will be unable to build Raspberry Pi Pico binaries."
 
 Installing this next, hopefully following the instructions does it for me...
+
+Installing that SDK did get me past the last issue, but I ran into a mysterious known bug associated with nmake: raspberrypi/pico-examples#152, raspberrypi/pico-examples#153. This bug is stumping the Pico developers and there is no known solution with nmake, but ninja and mingw don't cause the issue. So at this point I need to do some research and decide whether I want to go with ninja or mingw; additionally, there's the option to [use VSCode instead of Visual Studio](https://shawnhymel.com/2096/how-to-set-up-raspberry-pi-pico-c-c-toolchain-on-windows-with-vs-code/#Build_Blink_Example), which is interesting to me because it is lighter weight.
