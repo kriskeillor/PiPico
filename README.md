@@ -37,3 +37,12 @@ The next problem was **nmake** not being found. I re-ran VS Installer and instal
 Running the example build again worked this time! I also realized I left off a double-dot from the cmake command. Not sure what that argument is for, but it made a big (positive) difference in the output. 
 
 However, running nmake still failed. The complete output is shown in "hello-world-build-err.md". nmake is run on line 20.
+
+I asked a question on Stack Overflow. In the end I didn't get any direct answers, but did find some people asking [similar questions](https://stackoverflow.com/questions/14319247/cmake-is-unable-to-configure-project-for-visual-studios-10-amd64/14471934#14471934) with [more helpful answers](https://stackoverflow.com/questions/14319247/cmake-is-unable-to-configure-project-for-visual-studios-10-amd64/14471934#14471934). First I tried setting "devenv.exe" and "cl.exe" to run as administrator, which didn't work. Most of these answers were for targetting traditional platforms, so next I searched "arm m0 compile tools visual studio" which led to a [helpful blog post](https://devblogs.microsoft.com/cppblog/arm-gcc-cross-compilation-in-visual-studio/). I already had the Linux C++ workload installed, but not the Embedded and IoT development tools. 
+
+This STILL didn't work with the Hello World example project, so I tried creating a new Pi project based on a VS template. I was told I didn't have the Linux C++ development tools. I definitely do, so there must have been some sub-component I didn't include. 
+
+> At this point I finally noticed that I had missed a key note, "You must install the full "Windows 10 SDK" package as the SDK will need to build the pioasm and elf2uf2 tools locally.  
+> Removing it from the list of installed items will mean that you will be unable to build Raspberry Pi Pico binaries."
+
+Installing this next, hopefully following the instructions does it for me...
