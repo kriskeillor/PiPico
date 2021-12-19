@@ -94,6 +94,7 @@ For using I2C peripherals:
 - [ ] bus_scan
 - [ ] hello_pwm
 - [ ] led_fade
+I have been reading this [very helpful I2C series](https://rheingoldheavy.com/i2c-basics/) to gear up on I2C buses and wiring. To date I've only used prebuilt I2C circuits, never designed one myself. Unfortunately, I don't have pull-up resistors or a breadboard on hand right now, so I can't run these demos effectively.
 
 For communicating data (not sure if I will use USB or UART): 
 - [x] hello_usb
@@ -104,7 +105,9 @@ For communicating data (not sure if I will use USB or UART):
 - [ ] uart_advanced
 
 For timing:
-- [ ] hello_rtc
+- [x] hello_rtc  
+This was fun - the original build wasn't showing up to PuTTY. I edited CMakeLists.txt to match hello_usb, enabling USB and disabling UART, as well as ensuring the target is a tinyusb_device. It was successful!  
+In this process, I had to delete the *entire* examples build directory and rebuild all of them. This took several minutes (even with Ninja). I'm sure there is a way to rebuild one example at a time, but I need to figure out how...
 - [ ] rtc_alarm
 - [ ] rtc_alarm_repeat
 - [ ] hello_timer (note: not RTC)
