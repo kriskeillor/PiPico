@@ -64,3 +64,19 @@ Looking at a project's neighbors can be really helpful, too. Are they tools you 
 The list of projects using Ninja ([here](https://github.com/ninja-build/ninja/wiki/List-of-generators-producing-ninja-build-files)) is much shorter, but seems more focused on simply generating builds. This is fitting with the project's mission. Ninja has far more activity on Github, which is a site I'm active on. Ninja is also supposed to be very easy to install - simply download, add to the PATH, and go. For these reasons, I'm selecting Ninja to replace nmake. There's also a [great article on lwn.net](https://lwn.net/Articles/706404/) detailing some benefits of Ninja firsthand that is pretty reassuring. 
 
 It's urgent that I get this working, because not only has the pico-examples project failed to build, the built in MS Visual template failed to build as well!
+
+### Installing Ninja
+Installing Ninja was as easy as downloading it from Github and adding it to the system path using "Edit the system environment variables" on Windows 10. Go to "System variables", find "Path", edit it, add a new entry, paste in the path of the Ninja executable, and you're good to go. Confirm that the setting worked by typing `$env:PATH` in Powershell. Like any command window, you have to open a new instance after editing the PATH for your changes to be reflected.
+
+### Building with Ninja 
+
+```
+cmake -G "Ninja" .. 
+ninja
+```
+
+It's that easy! It built on literally the first try. Good stuff! My Pico is blinking happily!
+
+I appreciate the output of Ninja. It's concise and updates in real time. Some color coding would be nice, but I assume it's left out for the sake of speed.
+
+I have to take some of the blame for how long this took (forgetting the Windows 10 SDK), but all's well that ends well!
