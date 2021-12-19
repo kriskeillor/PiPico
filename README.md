@@ -80,3 +80,50 @@ It's that easy! It built on literally the first try. Good stuff! My Pico is blin
 I appreciate the output of Ninja. It's concise and updates in real time. Some color coding would be nice, but I assume it's left out for the sake of speed.
 
 I have to take some of the blame for how long this took (forgetting the Windows 10 SDK), but all's well that ends well!
+
+## Exploring the Pico Examples
+The [Pico Examples] repo has lots of great chunks of code to get someone started. 
+
+For my project, I need to read from an [I2C sensor](https://www.tindie.com/products/miceuz/i2c-soil-moisture-sensor/), control a small heater and LED driver, track the time over a 24 hour cycle, and output the data over USB. Optionally, it could be displayed on a small screen, as well as sent over USB.
+
+So, the relevant examples will demonstrate I2C control, digital outputs, and USB communication. These are: bus_scan, oled_i2c, and hello_usb. For controlling digital outputs, the PWM examples may be the best bet. I need to develop a schematic for the heater and LED peripherals before I know for sure the best control method. In all liklihood, I will use relays rather than transistors, due to high current draw on the LEDs and heaters.
+
+To that end, these are the demos I plan on building, running, and exploring:
+
+For using I2C peripherals:
+- [ ] bus_scan
+- [ ] hello_pwm
+- [ ] led_fade
+
+For communicating data (not sure if I will use USB or UART): 
+- [x] hello_usb
+- [ ] oled_i2c
+- [ ] hello_uart
+- [ ] uart_rx
+- [ ] uart_tx
+- [ ] uart_advanced
+
+For timing:
+- [ ] hello_rtc
+- [ ] rtc_alarm
+- [ ] rtc_alarm_repeat
+- [ ] hello_timer (note: not RTC)
+It is important to note that the Pico does not have a dedicated/battery backup RTC chip. These RTC examples would be reset with every power cycle.
+
+For general digital IO:
+- [ ] periodic_sampler
+- [ ] dht_sensor (one candidate for humidity sensing)
+
+For running LEDs and other pulse width modulated hardware:
+- [ ] led_fade
+
+For using the RP2040:
+- [ ] hello_double_tap (will be useful for my final prototype, which likely won't have a BOOTSEL)
+- [ ] narrow_io_write (required reading)
+- [ ] hello_multicore (with the other multicore demos to follow)
+
+I will also add the essential code to this repo for easy referencing.
+
+After running these demos, the next step will be exploring Programmable I/O (PIO) which may or may not be required; building RTOS for the Pico; and writing small programs that work with my sensors and drivers.
+
+There are a lot of other cool demos I'd like to check out (SPI! Quadrature encoding!), but they're not relevant to my current project. There are also several great demos for reading data from specific sensors, not in my possession, that I will probably cannabilize code from.
