@@ -48,3 +48,19 @@ This STILL didn't work with the Hello World example project, so I tried creating
 Installing this next, hopefully following the instructions does it for me...
 
 Installing that SDK did get me past the last issue, but I ran into a mysterious known bug associated with nmake: raspberrypi/pico-examples#152, raspberrypi/pico-examples#153. This bug is stumping the Pico developers and there is no known solution with nmake, but ninja and mingw don't cause the issue. So at this point I need to do some research and decide whether I want to go with ninja or mingw; additionally, there's the option to [use VSCode instead of Visual Studio](https://shawnhymel.com/2096/how-to-set-up-raspberry-pi-pico-c-c-toolchain-on-windows-with-vs-code/#Build_Blink_Example), which is interesting to me because it is lighter weight.
+
+Researching different build tools, I learned how much I have to learn. Here are some resources on MinGW-w64:
+- [Homepage](https://www.mingw-w64.org/)
+- [Wikipedia article](https://en.wikipedia.org/wiki/Mingw-w64)
+
+And some on Ninja:
+- [Homepage](https://ninja-build.org/)
+- [Wikipedia article](https://en.wikipedia.org/wiki/Ninja_%28build_system%29)
+
+What I've learned is that these are very different tools. 
+
+Looking at a project's neighbors can be really helpful, too. Are they tools you already use, or would like to? What I found looking at MinGW's neighbors (on the homepage) is many tools I'm not familiar with, and some I consider to be rather clunky. MinGW also wears many hats, describing itself as "a complete runtime environment for GCC & LLVM". [LLVM](https://en.wikipedia.org/wiki/LLVM) is a really cool technology for cross-referencing any language with any ISA. However, I am working on embedded development for a very specific hardware platform. I imagine LLVM could be used to cross-compile to other platforms, but there could be hardware incompatibilities, and frankly there is no pressing need. 
+
+The list of projects using Ninja ([here](https://github.com/ninja-build/ninja/wiki/List-of-generators-producing-ninja-build-files)) is much shorter, but seems more focused on simply generating builds. This is fitting with the project's mission. Ninja has far more activity on Github, which is a site I'm active on. Ninja is also supposed to be very easy to install - simply download, add to the PATH, and go. For these reasons, I'm selecting Ninja to replace nmake. There's also a [great article on lwn.net](https://lwn.net/Articles/706404/) detailing some benefits of Ninja firsthand that is pretty reassuring. 
+
+It's urgent that I get this working, because not only has the pico-examples project failed to build, the built in MS Visual template failed to build as well!
