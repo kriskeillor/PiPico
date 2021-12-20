@@ -131,3 +131,8 @@ I will also add the essential code to this repo for easy referencing.
 After running these demos, the next step will be exploring Programmable I/O (PIO) which may or may not be required; building RTOS for the Pico; and writing small programs that work with my sensors and drivers.
 
 There are a lot of other cool demos I'd like to check out (SPI! Quadrature encoding!), but they're not relevant to my current project. There are also several great demos for reading data from specific sensors, not in my possession, that I will probably cannabilize code from.
+
+## Going off on my own
+Attempting to modify the narrow_io_write demo program to run over USB was giving me a lot of problems, and I could not figure out why. I decided the best thing was to minimize the number of variables. I created a new projects directory and, combining CMakeLists from the examples and [this "Learn Embedded Systems" tutorial](https://learnembeddedsystems.co.uk/pico-usb-serial-code), and code from the latter, successfully compiled a project that incorporates GPIO output (a blinking LED) and terminal output (over USB). Going forward, I intend to incorporate the pico-examples in my new HelloWorld projects folder. This should streamline the process and help me learn to develop for the Pico from scratch. It's been quite troublesome to work inside this forest that I don't know much about, so I much prefer to start from the bottom.
+ 
+The important files to include were pico_sdk_import.cmake and the CMakeLists.txt files, which I cobbled together from the official examples and above tutorial.
