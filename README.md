@@ -122,7 +122,8 @@ For running LEDs and other pulse width modulated hardware:
 
 For using the RP2040:
 - [ ] hello_double_tap (will be useful for my final prototype, which likely won't have a BOOTSEL)
-- [ ] narrow_io_write (required reading)
+- [ ] narrow_io_write (required reading)  
+In attempting to get this demo working over USB, I encountered a lot of problems. Modifying the CMakeLists.txt file to enable USB did not seem to work, after many builds. I discovered that deleting simply the narrow_io_write build subdirectory and re-running Ninja would result in only that demo being recompiled, but it just wouldn't work right. In frustration, I deleted ALL the contents of the build directory and re-ran CMake and Ninja. Despite this, the build still is not appearing as a COM port after I flash it onto the Pico.
 - [ ] hello_multicore (with the other multicore demos to follow)
 
 I will also add the essential code to this repo for easy referencing.
