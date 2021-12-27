@@ -91,7 +91,7 @@ So, the relevant examples will demonstrate I2C control, digital outputs, and USB
 To that end, these are the demos I plan on building, running, and exploring:
 
 For using I2C peripherals:
-- [ ] bus_scan
+- [x] bus_scan
 - [ ] hello_pwm
 - [ ] led_fade
 I have been reading this [very helpful I2C series](https://rheingoldheavy.com/i2c-basics/) to gear up on I2C buses and wiring. To date I've only used prebuilt I2C circuits, never designed one myself. Unfortunately, I don't have pull-up resistors or a breadboard on hand right now, so I can't run these demos effectively.
@@ -122,8 +122,7 @@ For running LEDs and other pulse width modulated hardware:
 
 For using the RP2040:
 - [ ] hello_double_tap (will be useful for my final prototype, which likely won't have a BOOTSEL)
-- [ ] narrow_io_write (required reading)  
-In attempting to get this demo working over USB, I encountered a lot of problems. Modifying the CMakeLists.txt file to enable USB did not seem to work, after many builds. I discovered that deleting simply the narrow_io_write build subdirectory and re-running Ninja would result in only that demo being recompiled, but it just wouldn't work right. In frustration, I deleted ALL the contents of the build directory and re-ran CMake and Ninja. Despite this, the build still is not appearing as a COM port after I flash it onto the Pico.
+- [x] narrow_io_write (required reading)
 - [ ] hello_multicore (with the other multicore demos to follow)
 
 I will also add the essential code to this repo for easy referencing.
@@ -136,3 +135,13 @@ There are a lot of other cool demos I'd like to check out (SPI! Quadrature encod
 Attempting to modify the narrow_io_write demo program to run over USB was giving me a lot of problems, and I could not figure out why. I decided the best thing was to minimize the number of variables. I created a new projects directory and, combining CMakeLists from the examples and [this "Learn Embedded Systems" tutorial](https://learnembeddedsystems.co.uk/pico-usb-serial-code), and code from the latter, successfully compiled a project that incorporates GPIO output (a blinking LED) and terminal output (over USB). Going forward, I intend to incorporate the pico-examples in my new HelloWorld projects folder. This should streamline the process and help me learn to develop for the Pico from scratch. It's been quite troublesome to work inside this forest that I don't know much about, so I much prefer to start from the bottom.
  
 The important files to include were pico_sdk_import.cmake and the CMakeLists.txt files, which I cobbled together from the official examples and above tutorial.
+
+Besides having CMakeLists at the top-level directory to import and initialize the sdk, specify minimum versions for CMake and the SDK, specify the c/cxx (c++?) standards for CMake, specify directories to include - it's also necessary to have CMakeLists in subdirectories if they are further organized by folder.
+
+### Serial and USB connections
+In attempting to get the narrow_io_write example working over USB, I encountered a lot of problems. Modifying the CMakeLists.txt file to enable USB did not seem to work, after many builds. I discovered that deleting simply the narrow_io_write build subdirectory and re-running Ninja would result in only that demo being recompiled, but it just wouldn't work right. In frustration, I deleted ALL the contents of the build directory and re-ran CMake and Ninja. Despite this, the build still is not appearing as a COM port after I flash it onto the Pico.
+
+Thanks to the help of some folks over in the pi-pico-examples repo, I got some answers. I'm still not sure why the build was failing - but that problem hasn't occured again with Ninja. Regarding running the demos over USB, the issue is that once main() exits after it is finished, the USB COM link is closed. Putting an infinite loop at the end of the program prevents this, while putting the program *inside* an infinite loop allows you to actually see the output.
+
+I also picked up a USB to TTL UART converter, the DSD Tech SH-U095C. It seems like a versatile adapter that could be useful for many projects. The wiring is not the most friendly for my Cytron Maker, so I'll pick up a grove to female pin cable next.  
+The default baud rate on the Pico is 115200 bps. One handy thing about Serial as opposed to the USB COM port is that the serial port will stay open and listening throughout disconnects and power cycles on the Pico, unlike the 'virtual' (?) USB port.
