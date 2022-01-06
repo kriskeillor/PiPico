@@ -145,3 +145,10 @@ Thanks to the help of some folks over in the pi-pico-examples repo, I got some a
 
 I also picked up a USB to TTL UART converter, the DSD Tech SH-U095C. It seems like a versatile adapter that could be useful for many projects. The wiring is not the most friendly for my Cytron Maker, so I'll pick up a grove to female pin cable next.  
 The default baud rate on the Pico is 115200 bps. One handy thing about Serial as opposed to the USB COM port is that the serial port will stay open and listening throughout disconnects and power cycles on the Pico, unlike the 'virtual' (?) USB port.
+
+### OLED example with GPIO UI
+I modified the [Pico OLED example](https://github.com/raspberrypi/pico-examples/tree/master/i2c/oled_i2c) to allow the user to select a left scroll, right scroll, or no scroll by using GPIO 20, 21, and 22 as inputs. The logic levels of these pins can be manipulated easily by the Cytron Maker Pi Pico, which hooks them up to buttons (and pull-up resistors).
+
+The modification was successful in the end. There was some difficulty in compiling owing to a mistyped type. I have been using Notepad++ to write my programs; as a text editor and not an IDE, I've been running without error checking. It took me a while to notice the error in the Ninja output, because it was reported long before the build *actually* failed. 
+
+I did have some issues when attempting to modify the built-in art. Quite possibly, this was due to the typo above and may be corrected easily.
