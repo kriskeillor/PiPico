@@ -98,7 +98,7 @@ I have been reading this [very helpful I2C series](https://rheingoldheavy.com/i2
 
 For communicating data (not sure if I will use USB or UART): 
 - [x] hello_usb
-- [ ] oled_i2c
+- [x] oled_i2c
 - [ ] hello_uart
 - [ ] uart_rx
 - [ ] uart_tx
@@ -147,8 +147,20 @@ I also picked up a USB to TTL UART converter, the DSD Tech SH-U095C. It seems li
 The default baud rate on the Pico is 115200 bps. One handy thing about Serial as opposed to the USB COM port is that the serial port will stay open and listening throughout disconnects and power cycles on the Pico, unlike the 'virtual' (?) USB port.
 
 ### OLED example with GPIO UI
+Commit #6c5bf4b
 I modified the [Pico OLED example](https://github.com/raspberrypi/pico-examples/tree/master/i2c/oled_i2c) to allow the user to select a left scroll, right scroll, or no scroll by using GPIO 20, 21, and 22 as inputs. The logic levels of these pins can be manipulated easily by the Cytron Maker Pi Pico, which hooks them up to buttons (and pull-up resistors).
 
 The modification was successful in the end. There was some difficulty in compiling owing to a mistyped type. I have been using Notepad++ to write my programs; as a text editor and not an IDE, I've been running without error checking. It took me a while to notice the error in the Ninja output, because it was reported long before the build *actually* failed. 
 
 I did have some issues when attempting to modify the built-in art. Quite possibly, this was due to the typo above and may be corrected easily.
+
+#### Refactoring code structure
+I refactored the Pico OLED example with the functions for initializing and controlling the OLED in their own file. I'm sure I violated some best practices here, because I didn't write a header file, just put everything into a C file. I'm planning to use some (most?) of this code in a ping-pong game, with guidance from [Uri Shaked](https://hackaday.io/project/180374-pi-pico-pal-tv-pong). I just started watching his [Deep Dive into Pico and RP2040](https://hackaday.io/course/178733-raspberry-pi-pico-and-rp2040-the-deep-dive) HackadayU course, and it's been pretty illuminating so far! The highlights include:
+
+- Mr. Shaked is an entertaining and engaged presenter
+- He developed a Pico emulator in JavaScript. I'm not using it, because many of the demos he shares use Adafruit mappings, which doesn't help me much - and I have a Pico in the hardware right here, so there's no need. But, it's a very cool project and I think it will be a huge asset to Pico developers.
+- His approach to reading data sheets is very illuminating. I've been reading the book "Cyberpunk" and the way the hacker Kevin Mitnick's approach to exploring new file directories (that he cracked into...) is described as an art form in and of itself, by which he deduces the most important people and files in an organization. I feel like I caught a glimpse into that kind of seasoned understanding of the 'big picture' as I watched Mr. Shaked explore the RP2040 documentation in his [first video](https://www.youtube.com/watch?v=Duel_Oaases). Some things were deemed superficial - the architecture map, for instance - that you might not expect? But I do see how the inherent shallowness of such a bird's-eye view. The register addresses were given far more time, something I am quite familiar with delving!
+
+All in all I am really glad to have stumbled across this resource from the [embedded-related podcast](https://embedded.fm/), episode 396. I am reaching a point of diminishing returns from simply tweaking and rebuilding the examples, so I am going to watch the rest of these videos and dive into the Pong project! I already have some ideas for my own arcade games that I would love to explore in hardware *and* software.
+
+Oh, my difficulties with CMake and Ninja continued. I'm not sure what I'm missing from my CMakeLists, but Ninja can't find "CMAKE_CXX_COMPILER" or "CMAKE_C_COMPILER". I've pored over my lists vs. the example ones, seeing few significant differences. This is my first time developing outside of an IDE so I just need to take a course or get the basics explained to me by someone more experienced.
