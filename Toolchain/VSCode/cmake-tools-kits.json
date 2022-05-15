@@ -6,8 +6,9 @@
   {
     "name": "GCC 11.2.1 arm-none-eabi",
     "compilers": {
-      "C": "C:/vsarm/gcc-arm/11.2-2022.02/bin/arm-none-eabi-gcc-11.2.1.exe",
-      "CXX": "C:/vsarm/gcc-arm/11.2-2022.02/bin/arm-none-eabi-g++.exe"
-    }
+      "C": "C:/Users/<user>/VSARM/gcc-arm/bin/arm-none-eabi-gcc-11.2.1.exe",
+      "CXX": "C:/Users/<user>/VSARM/gcc-arm/bin/arm-none-eabi-g++.exe"
+    },
+    "keep": true
   }
 ]

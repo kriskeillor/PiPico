@@ -2,22 +2,22 @@
     "_path": "C:/Users/<user>/AppData/Roaming/Code/User/settings.json",
     "cmake.configureOnOpen": true,
     "cmake.mingwSearchDirs": [
-        "C:/vsarm/mingw/mingw32/bin"
+        "C:/Users/<user>/vsarm/mingw/mingw32/bin"
     ],
     "cmake.allowCommentsInPresetsFile": true,
     "cmake.buildEnvironment": {
-        "PATH": "C:/vsarm/mingw/mingw32/bin",
-        "CMAKE_C_COMPILER": "C:/vsarm/gcc-arm/gcc-arm-11.2-2022.02/bin/arm-none-eabi-gcc.exe",
-        "CMAKE_CXX_COMPILER": "C:/vsarm/gcc-arm/gcc-arm-11.2-2022.02/bin/arm-none-eabi-g++.exe"
+        "PATH": "C:/Users/<user>/VSARM/mingw32/bin",
+        "CMAKE_C_COMPILER": "C:/Users/<user>/VSARM/gcc-arm/bin/arm-none-eabi-gcc.exe",
+        "CMAKE_CXX_COMPILER": "C:/Users/<user>/VSARM/gcc-arm/bin/arm-none-eabi-g++.exe"
     },
-    "cmake.cmakePath": "C:/vsarm/cmake/bin/cmake.exe",
+    "cmake.cmakePath": "C:/Users/<user>/VSARM/cmake/bin/cmake.exe",
     "cmake.generator": "MinGW Makefiles",
-    
     "cmake.configureEnvironment": {
-        "PATH": "C:/vsarm/mingw/mingw32/bin/",
-        "PICO_SDK_PATH": "Z:/path/to/pico-sdk",
-        "PICO_TOOLCHAIN_PATH": "C:/vsarm/gcc-arm/11.2-2022.02/bin/",
-        "CMAKE_C_COMPILER": "C:/vsarm/gcc-arm/11.2-2022.02/bin/",
-        "CMAKE_CXX_COMPILER": "C:/vsarm/gcc-arm/11.2-2022.02/bin/"
+        "PATH": "C:/Users/<user>/VSARM/mingw32/bin",
+        "CMAKE_C_COMPILER": "C:/Users/<user>/VSARM/gcc-arm/bin/arm-none-eabi-gcc.exe",
+        "CMAKE_CXX_COMPILER": "C:/Users/<user>/VSARM/gcc-arm/bin/arm-none-eabi-g++.exe",
+        "PICO_SDK_PATH": "C:/Users/<user>/VSARM/pico-sdk",
+        "PICO_TOOLCHAIN_PATH": "C:/Users/<user>/VSARM/gcc-arm/bin",
+        "FREERTOS_KERNEL_PATH": "C:/Users/<user>/VSARM/FreeRTOS-Kernel"
     }
 }
