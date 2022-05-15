@@ -1,0 +1,13 @@
+[
+  {
+     "_path": "C:/Users/<user>/AppData/Local/CMakeTools/cmake-tools-kits.json"
+  },
+
+  {
+    "name": "GCC 11.2.1 arm-none-eabi",
+    "compilers": {
+      "C": "C:/vsarm/gcc-arm/11.2-2022.02/bin/arm-none-eabi-gcc-11.2.1.exe",
+      "CXX": "C:/vsarm/gcc-arm/11.2-2022.02/bin/arm-none-eabi-g++.exe"
+    }
+  }
+]
